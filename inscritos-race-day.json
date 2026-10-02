@@ -1,0 +1,1362 @@
+{
+  "evento": "Gracia Latidos 2026",
+  "fuente": "latidos-ops/inscripciones.csv",
+  "nota": "Solo lectura. dorsal aún no asignado (null/vacío). En relevos, 'carrera' = trote del canónico.",
+  "total": 62,
+  "inscritos": [
+    {
+      "id": "001",
+      "nombre_completo": "Acosta Roberto",
+      "categoria": "M",
+      "dorsal": null,
+      "equipo": null,
+      "tramos_equipo": null,
+      "tramos_persona": []
+    },
+    {
+      "id": "002",
+      "nombre_completo": "Araujo Felipe",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 7",
+      "tramos_equipo": {
+        "natacion": [
+          "Araujo Felipe"
+        ],
+        "bici": [
+          "León Tomás"
+        ],
+        "carrera": [
+          "Freire Josué"
+        ]
+      },
+      "tramos_persona": [
+        "natacion"
+      ]
+    },
+    {
+      "id": "003",
+      "nombre_completo": "Arcos Ariana",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 4",
+      "tramos_equipo": {
+        "natacion": [
+          "Arcos Tito"
+        ],
+        "bici": [
+          "León Patricia"
+        ],
+        "carrera": [
+          "Arcos Ariana"
+        ]
+      },
+      "tramos_persona": [
+        "carrera"
+      ]
+    },
+    {
+      "id": "004",
+      "nombre_completo": "Arcos Tito",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 4",
+      "tramos_equipo": {
+        "natacion": [
+          "Arcos Tito"
+        ],
+        "bici": [
+          "León Patricia"
+        ],
+        "carrera": [
+          "Arcos Ariana"
+        ]
+      },
+      "tramos_persona": [
+        "natacion"
+      ]
+    },
+    {
+      "id": "005",
+      "nombre_completo": "Armendáriz Verónica",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 16",
+      "tramos_equipo": {
+        "natacion": [
+          "Rueda Diego"
+        ],
+        "bici": [
+          "Armendáriz Verónica"
+        ],
+        "carrera": [
+          "Armendáriz Verónica"
+        ]
+      },
+      "tramos_persona": [
+        "bici",
+        "carrera"
+      ]
+    },
+    {
+      "id": "006",
+      "nombre_completo": "Becerra Cristian",
+      "categoria": "M",
+      "dorsal": null,
+      "equipo": null,
+      "tramos_equipo": null,
+      "tramos_persona": []
+    },
+    {
+      "id": "007",
+      "nombre_completo": "Becerra Julián",
+      "categoria": "M",
+      "dorsal": null,
+      "equipo": null,
+      "tramos_equipo": null,
+      "tramos_persona": []
+    },
+    {
+      "id": "008",
+      "nombre_completo": "Becerra Maripaz",
+      "categoria": "F",
+      "dorsal": null,
+      "equipo": null,
+      "tramos_equipo": null,
+      "tramos_persona": []
+    },
+    {
+      "id": "009",
+      "nombre_completo": "Bravo Abner",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 1",
+      "tramos_equipo": {
+        "natacion": [
+          "Bravo Abner"
+        ],
+        "bici": [
+          "Bravo Matías"
+        ],
+        "carrera": [
+          "Flores Paola"
+        ]
+      },
+      "tramos_persona": [
+        "natacion"
+      ]
+    },
+    {
+      "id": "010",
+      "nombre_completo": "Bravo Matías",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 1",
+      "tramos_equipo": {
+        "natacion": [
+          "Bravo Abner"
+        ],
+        "bici": [
+          "Bravo Matías"
+        ],
+        "carrera": [
+          "Flores Paola"
+        ]
+      },
+      "tramos_persona": [
+        "bici"
+      ]
+    },
+    {
+      "id": "011",
+      "nombre_completo": "Bustos Estefy",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 12",
+      "tramos_equipo": {
+        "natacion": [
+          "Palomeque Lissette"
+        ],
+        "bici": [
+          "Pinargote Juliana"
+        ],
+        "carrera": [
+          "Bustos Estefy"
+        ]
+      },
+      "tramos_persona": [
+        "carrera"
+      ]
+    },
+    {
+      "id": "012",
+      "nombre_completo": "Cabrera Elías",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 18",
+      "tramos_equipo": {
+        "natacion": [
+          "Cabrera Elías"
+        ],
+        "bici": [
+          "Cabrera Fernando"
+        ],
+        "carrera": [
+          "Cabrera Fernando"
+        ]
+      },
+      "tramos_persona": [
+        "natacion"
+      ]
+    },
+    {
+      "id": "013",
+      "nombre_completo": "Cabrera Fernando",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 18",
+      "tramos_equipo": {
+        "natacion": [
+          "Cabrera Elías"
+        ],
+        "bici": [
+          "Cabrera Fernando"
+        ],
+        "carrera": [
+          "Cabrera Fernando"
+        ]
+      },
+      "tramos_persona": [
+        "bici",
+        "carrera"
+      ]
+    },
+    {
+      "id": "014",
+      "nombre_completo": "Cacuango Luis",
+      "categoria": "M",
+      "dorsal": null,
+      "equipo": null,
+      "tramos_equipo": null,
+      "tramos_persona": []
+    },
+    {
+      "id": "015",
+      "nombre_completo": "Cacuango Paulette",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 14",
+      "tramos_equipo": {
+        "natacion": [
+          "Cacuango Paulette"
+        ],
+        "bici": [
+          "Panta Doménica"
+        ],
+        "carrera": [
+          "Delgado Samuel"
+        ]
+      },
+      "tramos_persona": [
+        "natacion"
+      ]
+    },
+    {
+      "id": "016",
+      "nombre_completo": "Camacho Joseph",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 10",
+      "tramos_equipo": {
+        "natacion": [
+          "Camacho Joseph"
+        ],
+        "bici": [
+          "Rueda Paula"
+        ],
+        "carrera": [
+          "Camacho Joseph"
+        ]
+      },
+      "tramos_persona": [
+        "natacion",
+        "carrera"
+      ]
+    },
+    {
+      "id": "017",
+      "nombre_completo": "Carrera Vielka",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 11",
+      "tramos_equipo": {
+        "natacion": [
+          "Pizarro Andrés"
+        ],
+        "bici": [
+          "Carrera Vielka"
+        ],
+        "carrera": [
+          "Carrera Vielka"
+        ]
+      },
+      "tramos_persona": [
+        "bici",
+        "carrera"
+      ]
+    },
+    {
+      "id": "018",
+      "nombre_completo": "Cevallos Paulina",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 2",
+      "tramos_equipo": {
+        "natacion": [
+          "Cevallos Paulina"
+        ],
+        "bici": [
+          "Salvador Fernando"
+        ],
+        "carrera": [
+          "Salvador Esteban"
+        ]
+      },
+      "tramos_persona": [
+        "natacion"
+      ]
+    },
+    {
+      "id": "019",
+      "nombre_completo": "Chilla Emilia",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 3",
+      "tramos_equipo": {
+        "natacion": [
+          "Chilla Emilia"
+        ],
+        "bici": [
+          "Quinteros Felipe"
+        ],
+        "carrera": [
+          "Quinteros Felipe"
+        ]
+      },
+      "tramos_persona": [
+        "natacion"
+      ]
+    },
+    {
+      "id": "020",
+      "nombre_completo": "Chirán Vladimir",
+      "categoria": "M",
+      "dorsal": null,
+      "equipo": null,
+      "tramos_equipo": null,
+      "tramos_persona": []
+    },
+    {
+      "id": "021",
+      "nombre_completo": "Dávila Melissa",
+      "categoria": "F",
+      "dorsal": null,
+      "equipo": null,
+      "tramos_equipo": null,
+      "tramos_persona": []
+    },
+    {
+      "id": "022",
+      "nombre_completo": "Delgado Diego",
+      "categoria": "M",
+      "dorsal": null,
+      "equipo": null,
+      "tramos_equipo": null,
+      "tramos_persona": []
+    },
+    {
+      "id": "023",
+      "nombre_completo": "Delgado Samuel",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 14",
+      "tramos_equipo": {
+        "natacion": [
+          "Cacuango Paulette"
+        ],
+        "bici": [
+          "Panta Doménica"
+        ],
+        "carrera": [
+          "Delgado Samuel"
+        ]
+      },
+      "tramos_persona": [
+        "carrera"
+      ]
+    },
+    {
+      "id": "024",
+      "nombre_completo": "Escalante Carlos",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 5",
+      "tramos_equipo": {
+        "natacion": [
+          "Escalante Hady"
+        ],
+        "bici": [
+          "Escalante Carlos"
+        ],
+        "carrera": [
+          "Escalante Charlie"
+        ]
+      },
+      "tramos_persona": [
+        "bici"
+      ]
+    },
+    {
+      "id": "025",
+      "nombre_completo": "Escalante Charlie",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 5",
+      "tramos_equipo": {
+        "natacion": [
+          "Escalante Hady"
+        ],
+        "bici": [
+          "Escalante Carlos"
+        ],
+        "carrera": [
+          "Escalante Charlie"
+        ]
+      },
+      "tramos_persona": [
+        "carrera"
+      ]
+    },
+    {
+      "id": "026",
+      "nombre_completo": "Escalante Hady",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 5",
+      "tramos_equipo": {
+        "natacion": [
+          "Escalante Hady"
+        ],
+        "bici": [
+          "Escalante Carlos"
+        ],
+        "carrera": [
+          "Escalante Charlie"
+        ]
+      },
+      "tramos_persona": [
+        "natacion"
+      ]
+    },
+    {
+      "id": "027",
+      "nombre_completo": "Espín Juanita",
+      "categoria": "F",
+      "dorsal": null,
+      "equipo": null,
+      "tramos_equipo": null,
+      "tramos_persona": []
+    },
+    {
+      "id": "028",
+      "nombre_completo": "Farina Laura Johanna",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 9",
+      "tramos_equipo": {
+        "natacion": [
+          "Farina Laura Johanna"
+        ],
+        "bici": [],
+        "carrera": [
+          "Farina Laura Johanna"
+        ]
+      },
+      "tramos_persona": [
+        "natacion",
+        "carrera"
+      ]
+    },
+    {
+      "id": "029",
+      "nombre_completo": "Flores Paola",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 1",
+      "tramos_equipo": {
+        "natacion": [
+          "Bravo Abner"
+        ],
+        "bici": [
+          "Bravo Matías"
+        ],
+        "carrera": [
+          "Flores Paola"
+        ]
+      },
+      "tramos_persona": [
+        "carrera"
+      ]
+    },
+    {
+      "id": "030",
+      "nombre_completo": "Flores Yolanda",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 8",
+      "tramos_equipo": {
+        "natacion": [
+          "Ojeda Gabriela"
+        ],
+        "bici": [
+          "Flores Yolanda"
+        ],
+        "carrera": [
+          "Henríquez Carolina"
+        ]
+      },
+      "tramos_persona": [
+        "bici"
+      ]
+    },
+    {
+      "id": "031",
+      "nombre_completo": "Freire Josué",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 7",
+      "tramos_equipo": {
+        "natacion": [
+          "Araujo Felipe"
+        ],
+        "bici": [
+          "León Tomás"
+        ],
+        "carrera": [
+          "Freire Josué"
+        ]
+      },
+      "tramos_persona": [
+        "carrera"
+      ]
+    },
+    {
+      "id": "032",
+      "nombre_completo": "García Javier",
+      "categoria": "M",
+      "dorsal": null,
+      "equipo": null,
+      "tramos_equipo": null,
+      "tramos_persona": []
+    },
+    {
+      "id": "033",
+      "nombre_completo": "García Kike",
+      "categoria": "M",
+      "dorsal": null,
+      "equipo": null,
+      "tramos_equipo": null,
+      "tramos_persona": []
+    },
+    {
+      "id": "034",
+      "nombre_completo": "Gina",
+      "categoria": "F",
+      "dorsal": null,
+      "equipo": null,
+      "tramos_equipo": null,
+      "tramos_persona": []
+    },
+    {
+      "id": "035",
+      "nombre_completo": "Guerrero Gabriel",
+      "categoria": "M",
+      "dorsal": null,
+      "equipo": null,
+      "tramos_equipo": null,
+      "tramos_persona": []
+    },
+    {
+      "id": "036",
+      "nombre_completo": "Henríquez Carolina",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 8",
+      "tramos_equipo": {
+        "natacion": [
+          "Ojeda Gabriela"
+        ],
+        "bici": [
+          "Flores Yolanda"
+        ],
+        "carrera": [
+          "Henríquez Carolina"
+        ]
+      },
+      "tramos_persona": [
+        "carrera"
+      ]
+    },
+    {
+      "id": "037",
+      "nombre_completo": "Jara Correa Carlos",
+      "categoria": "M",
+      "dorsal": null,
+      "equipo": null,
+      "tramos_equipo": null,
+      "tramos_persona": []
+    },
+    {
+      "id": "038",
+      "nombre_completo": "León Patricia",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 4",
+      "tramos_equipo": {
+        "natacion": [
+          "Arcos Tito"
+        ],
+        "bici": [
+          "León Patricia"
+        ],
+        "carrera": [
+          "Arcos Ariana"
+        ]
+      },
+      "tramos_persona": [
+        "bici"
+      ]
+    },
+    {
+      "id": "039",
+      "nombre_completo": "León Tomás",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 7",
+      "tramos_equipo": {
+        "natacion": [
+          "Araujo Felipe"
+        ],
+        "bici": [
+          "León Tomás"
+        ],
+        "carrera": [
+          "Freire Josué"
+        ]
+      },
+      "tramos_persona": [
+        "bici"
+      ]
+    },
+    {
+      "id": "040",
+      "nombre_completo": "Montaquiza Cami",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 17",
+      "tramos_equipo": {
+        "natacion": [
+          "Rueda Mateo"
+        ],
+        "bici": [
+          "Montaquiza Cami"
+        ],
+        "carrera": [
+          "Rueda Mateo"
+        ]
+      },
+      "tramos_persona": [
+        "bici"
+      ]
+    },
+    {
+      "id": "041",
+      "nombre_completo": "Moreira Diogo",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 13",
+      "tramos_equipo": {
+        "natacion": [],
+        "bici": [
+          "Moreira Diogo"
+        ],
+        "carrera": [
+          "Moreira Diogo"
+        ]
+      },
+      "tramos_persona": [
+        "bici",
+        "carrera"
+      ]
+    },
+    {
+      "id": "042",
+      "nombre_completo": "Ojeda Gabriela",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 8",
+      "tramos_equipo": {
+        "natacion": [
+          "Ojeda Gabriela"
+        ],
+        "bici": [
+          "Flores Yolanda"
+        ],
+        "carrera": [
+          "Henríquez Carolina"
+        ]
+      },
+      "tramos_persona": [
+        "natacion"
+      ]
+    },
+    {
+      "id": "043",
+      "nombre_completo": "Palomeque Lissette",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 12",
+      "tramos_equipo": {
+        "natacion": [
+          "Palomeque Lissette"
+        ],
+        "bici": [
+          "Pinargote Juliana"
+        ],
+        "carrera": [
+          "Bustos Estefy"
+        ]
+      },
+      "tramos_persona": [
+        "natacion"
+      ]
+    },
+    {
+      "id": "044",
+      "nombre_completo": "Panta Doménica",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 14",
+      "tramos_equipo": {
+        "natacion": [
+          "Cacuango Paulette"
+        ],
+        "bici": [
+          "Panta Doménica"
+        ],
+        "carrera": [
+          "Delgado Samuel"
+        ]
+      },
+      "tramos_persona": [
+        "bici"
+      ]
+    },
+    {
+      "id": "045",
+      "nombre_completo": "Panta Stiven",
+      "categoria": "M",
+      "dorsal": null,
+      "equipo": null,
+      "tramos_equipo": null,
+      "tramos_persona": []
+    },
+    {
+      "id": "046",
+      "nombre_completo": "Pérez Gabriela",
+      "categoria": "F",
+      "dorsal": null,
+      "equipo": null,
+      "tramos_equipo": null,
+      "tramos_persona": []
+    },
+    {
+      "id": "047",
+      "nombre_completo": "Pinargote Juliana",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 12",
+      "tramos_equipo": {
+        "natacion": [
+          "Palomeque Lissette"
+        ],
+        "bici": [
+          "Pinargote Juliana"
+        ],
+        "carrera": [
+          "Bustos Estefy"
+        ]
+      },
+      "tramos_persona": [
+        "bici"
+      ]
+    },
+    {
+      "id": "048",
+      "nombre_completo": "Pinta Anderson",
+      "categoria": "M",
+      "dorsal": null,
+      "equipo": null,
+      "tramos_equipo": null,
+      "tramos_persona": []
+    },
+    {
+      "id": "049",
+      "nombre_completo": "Pizarro Andrés",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 11",
+      "tramos_equipo": {
+        "natacion": [
+          "Pizarro Andrés"
+        ],
+        "bici": [
+          "Carrera Vielka"
+        ],
+        "carrera": [
+          "Carrera Vielka"
+        ]
+      },
+      "tramos_persona": [
+        "natacion"
+      ]
+    },
+    {
+      "id": "050",
+      "nombre_completo": "Quinteros Felipe",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 3",
+      "tramos_equipo": {
+        "natacion": [
+          "Chilla Emilia"
+        ],
+        "bici": [
+          "Quinteros Felipe"
+        ],
+        "carrera": [
+          "Quinteros Felipe"
+        ]
+      },
+      "tramos_persona": [
+        "bici",
+        "carrera"
+      ]
+    },
+    {
+      "id": "051",
+      "nombre_completo": "Rueda Diego",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 16",
+      "tramos_equipo": {
+        "natacion": [
+          "Rueda Diego"
+        ],
+        "bici": [
+          "Armendáriz Verónica"
+        ],
+        "carrera": [
+          "Armendáriz Verónica"
+        ]
+      },
+      "tramos_persona": [
+        "natacion"
+      ]
+    },
+    {
+      "id": "052",
+      "nombre_completo": "Rueda Mateo",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 17",
+      "tramos_equipo": {
+        "natacion": [
+          "Rueda Mateo"
+        ],
+        "bici": [
+          "Montaquiza Cami"
+        ],
+        "carrera": [
+          "Rueda Mateo"
+        ]
+      },
+      "tramos_persona": [
+        "natacion",
+        "carrera"
+      ]
+    },
+    {
+      "id": "053",
+      "nombre_completo": "Rueda Paula",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 10",
+      "tramos_equipo": {
+        "natacion": [
+          "Camacho Joseph"
+        ],
+        "bici": [
+          "Rueda Paula"
+        ],
+        "carrera": [
+          "Camacho Joseph"
+        ]
+      },
+      "tramos_persona": [
+        "bici"
+      ]
+    },
+    {
+      "id": "054",
+      "nombre_completo": "Rumiguano Robinson",
+      "categoria": "M",
+      "dorsal": null,
+      "equipo": null,
+      "tramos_equipo": null,
+      "tramos_persona": []
+    },
+    {
+      "id": "055",
+      "nombre_completo": "Sáenz Juan Carlos",
+      "categoria": "M",
+      "dorsal": null,
+      "equipo": null,
+      "tramos_equipo": null,
+      "tramos_persona": []
+    },
+    {
+      "id": "056",
+      "nombre_completo": "Salazar Darwin",
+      "categoria": "M",
+      "dorsal": null,
+      "equipo": null,
+      "tramos_equipo": null,
+      "tramos_persona": []
+    },
+    {
+      "id": "057",
+      "nombre_completo": "Salazar Gianna",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 6",
+      "tramos_equipo": {
+        "natacion": [],
+        "bici": [
+          "Salazar Gianna"
+        ],
+        "carrera": [
+          "Salazar Gianna"
+        ]
+      },
+      "tramos_persona": [
+        "bici",
+        "carrera"
+      ]
+    },
+    {
+      "id": "058",
+      "nombre_completo": "Salvador Esteban",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 2",
+      "tramos_equipo": {
+        "natacion": [
+          "Cevallos Paulina"
+        ],
+        "bici": [
+          "Salvador Fernando"
+        ],
+        "carrera": [
+          "Salvador Esteban"
+        ]
+      },
+      "tramos_persona": [
+        "carrera"
+      ]
+    },
+    {
+      "id": "059",
+      "nombre_completo": "Salvador Fernando",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 2",
+      "tramos_equipo": {
+        "natacion": [
+          "Cevallos Paulina"
+        ],
+        "bici": [
+          "Salvador Fernando"
+        ],
+        "carrera": [
+          "Salvador Esteban"
+        ]
+      },
+      "tramos_persona": [
+        "bici"
+      ]
+    },
+    {
+      "id": "060",
+      "nombre_completo": "Sánchez Paola",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 15",
+      "tramos_equipo": {
+        "natacion": [
+          "Vargas Doris"
+        ],
+        "bici": [
+          "Sánchez Paola"
+        ],
+        "carrera": []
+      },
+      "tramos_persona": [
+        "bici"
+      ]
+    },
+    {
+      "id": "061",
+      "nombre_completo": "Vargas Doris",
+      "categoria": "Relevo",
+      "dorsal": null,
+      "equipo": "Equipo 15",
+      "tramos_equipo": {
+        "natacion": [
+          "Vargas Doris"
+        ],
+        "bici": [
+          "Sánchez Paola"
+        ],
+        "carrera": []
+      },
+      "tramos_persona": [
+        "natacion"
+      ]
+    },
+    {
+      "id": "062",
+      "nombre_completo": "Villacreces Juan Carlos",
+      "categoria": "M",
+      "dorsal": null,
+      "equipo": null,
+      "tramos_equipo": null,
+      "tramos_persona": []
+    }
+  ],
+  "equipos": [
+    {
+      "equipo": "Equipo 1",
+      "numero": 1,
+      "natacion": [
+        "Bravo Abner"
+      ],
+      "bici": [
+        "Bravo Matías"
+      ],
+      "carrera": [
+        "Flores Paola"
+      ],
+      "integrantes": [
+        "Bravo Abner",
+        "Bravo Matías",
+        "Flores Paola"
+      ]
+    },
+    {
+      "equipo": "Equipo 2",
+      "numero": 2,
+      "natacion": [
+        "Cevallos Paulina"
+      ],
+      "bici": [
+        "Salvador Fernando"
+      ],
+      "carrera": [
+        "Salvador Esteban"
+      ],
+      "integrantes": [
+        "Cevallos Paulina",
+        "Salvador Esteban",
+        "Salvador Fernando"
+      ]
+    },
+    {
+      "equipo": "Equipo 3",
+      "numero": 3,
+      "natacion": [
+        "Chilla Emilia"
+      ],
+      "bici": [
+        "Quinteros Felipe"
+      ],
+      "carrera": [
+        "Quinteros Felipe"
+      ],
+      "integrantes": [
+        "Chilla Emilia",
+        "Quinteros Felipe"
+      ]
+    },
+    {
+      "equipo": "Equipo 4",
+      "numero": 4,
+      "natacion": [
+        "Arcos Tito"
+      ],
+      "bici": [
+        "León Patricia"
+      ],
+      "carrera": [
+        "Arcos Ariana"
+      ],
+      "integrantes": [
+        "Arcos Ariana",
+        "Arcos Tito",
+        "León Patricia"
+      ]
+    },
+    {
+      "equipo": "Equipo 5",
+      "numero": 5,
+      "natacion": [
+        "Escalante Hady"
+      ],
+      "bici": [
+        "Escalante Carlos"
+      ],
+      "carrera": [
+        "Escalante Charlie"
+      ],
+      "integrantes": [
+        "Escalante Carlos",
+        "Escalante Charlie",
+        "Escalante Hady"
+      ]
+    },
+    {
+      "equipo": "Equipo 6",
+      "numero": 6,
+      "natacion": [],
+      "bici": [
+        "Salazar Gianna"
+      ],
+      "carrera": [
+        "Salazar Gianna"
+      ],
+      "integrantes": [
+        "Salazar Gianna"
+      ]
+    },
+    {
+      "equipo": "Equipo 7",
+      "numero": 7,
+      "natacion": [
+        "Araujo Felipe"
+      ],
+      "bici": [
+        "León Tomás"
+      ],
+      "carrera": [
+        "Freire Josué"
+      ],
+      "integrantes": [
+        "Araujo Felipe",
+        "Freire Josué",
+        "León Tomás"
+      ]
+    },
+    {
+      "equipo": "Equipo 8",
+      "numero": 8,
+      "natacion": [
+        "Ojeda Gabriela"
+      ],
+      "bici": [
+        "Flores Yolanda"
+      ],
+      "carrera": [
+        "Henríquez Carolina"
+      ],
+      "integrantes": [
+        "Flores Yolanda",
+        "Henríquez Carolina",
+        "Ojeda Gabriela"
+      ]
+    },
+    {
+      "equipo": "Equipo 9",
+      "numero": 9,
+      "natacion": [
+        "Farina Laura Johanna"
+      ],
+      "bici": [],
+      "carrera": [
+        "Farina Laura Johanna"
+      ],
+      "integrantes": [
+        "Farina Laura Johanna"
+      ]
+    },
+    {
+      "equipo": "Equipo 10",
+      "numero": 10,
+      "natacion": [
+        "Camacho Joseph"
+      ],
+      "bici": [
+        "Rueda Paula"
+      ],
+      "carrera": [
+        "Camacho Joseph"
+      ],
+      "integrantes": [
+        "Camacho Joseph",
+        "Rueda Paula"
+      ]
+    },
+    {
+      "equipo": "Equipo 11",
+      "numero": 11,
+      "natacion": [
+        "Pizarro Andrés"
+      ],
+      "bici": [
+        "Carrera Vielka"
+      ],
+      "carrera": [
+        "Carrera Vielka"
+      ],
+      "integrantes": [
+        "Carrera Vielka",
+        "Pizarro Andrés"
+      ]
+    },
+    {
+      "equipo": "Equipo 12",
+      "numero": 12,
+      "natacion": [
+        "Palomeque Lissette"
+      ],
+      "bici": [
+        "Pinargote Juliana"
+      ],
+      "carrera": [
+        "Bustos Estefy"
+      ],
+      "integrantes": [
+        "Bustos Estefy",
+        "Palomeque Lissette",
+        "Pinargote Juliana"
+      ]
+    },
+    {
+      "equipo": "Equipo 13",
+      "numero": 13,
+      "natacion": [],
+      "bici": [
+        "Moreira Diogo"
+      ],
+      "carrera": [
+        "Moreira Diogo"
+      ],
+      "integrantes": [
+        "Moreira Diogo"
+      ]
+    },
+    {
+      "equipo": "Equipo 14",
+      "numero": 14,
+      "natacion": [
+        "Cacuango Paulette"
+      ],
+      "bici": [
+        "Panta Doménica"
+      ],
+      "carrera": [
+        "Delgado Samuel"
+      ],
+      "integrantes": [
+        "Cacuango Paulette",
+        "Delgado Samuel",
+        "Panta Doménica"
+      ]
+    },
+    {
+      "equipo": "Equipo 15",
+      "numero": 15,
+      "natacion": [
+        "Vargas Doris"
+      ],
+      "bici": [
+        "Sánchez Paola"
+      ],
+      "carrera": [],
+      "integrantes": [
+        "Sánchez Paola",
+        "Vargas Doris"
+      ]
+    },
+    {
+      "equipo": "Equipo 16",
+      "numero": 16,
+      "natacion": [
+        "Rueda Diego"
+      ],
+      "bici": [
+        "Armendáriz Verónica"
+      ],
+      "carrera": [
+        "Armendáriz Verónica"
+      ],
+      "integrantes": [
+        "Armendáriz Verónica",
+        "Rueda Diego"
+      ]
+    },
+    {
+      "equipo": "Equipo 17",
+      "numero": 17,
+      "natacion": [
+        "Rueda Mateo"
+      ],
+      "bici": [
+        "Montaquiza Cami"
+      ],
+      "carrera": [
+        "Rueda Mateo"
+      ],
+      "integrantes": [
+        "Montaquiza Cami",
+        "Rueda Mateo"
+      ]
+    },
+    {
+      "equipo": "Equipo 18",
+      "numero": 18,
+      "natacion": [
+        "Cabrera Elías"
+      ],
+      "bici": [
+        "Cabrera Fernando"
+      ],
+      "carrera": [
+        "Cabrera Fernando"
+      ],
+      "integrantes": [
+        "Cabrera Elías",
+        "Cabrera Fernando"
+      ]
+    }
+  ]
+}
