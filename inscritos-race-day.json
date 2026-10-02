@@ -1,14 +1,20 @@
 {
   "evento": "Gracia Latidos 2026",
   "fuente": "latidos-ops/inscripciones.csv",
-  "nota": "Solo lectura. dorsal aún no asignado. carrera = trote del canónico.",
+  "nota": "Solo lectura. dorsal aún no asignado. carrera = trote. estado_pago: pagado|pendiente; pagado: bool. Sin montos/finanzas.",
   "total": 62,
+  "pago_resumen": {
+    "pagado": 47,
+    "pendiente": 15
+  },
   "inscritos": [
     {
       "id": "001",
       "nombre_completo": "Acosta Roberto",
       "categoria": "M",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": null,
       "tramos_equipo": null,
       "tramos_persona": []
@@ -18,6 +24,8 @@
       "nombre_completo": "Araujo Felipe",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 7",
       "tramos_equipo": {
         "natacion": [
@@ -39,6 +47,8 @@
       "nombre_completo": "Arcos Ariana",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 4",
       "tramos_equipo": {
         "natacion": [
@@ -60,6 +70,8 @@
       "nombre_completo": "Arcos Tito",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 4",
       "tramos_equipo": {
         "natacion": [
@@ -81,6 +93,8 @@
       "nombre_completo": "Armendáriz Verónica",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 16",
       "tramos_equipo": {
         "natacion": [
@@ -103,6 +117,8 @@
       "nombre_completo": "Becerra Cristian",
       "categoria": "M",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": null,
       "tramos_equipo": null,
       "tramos_persona": []
@@ -112,6 +128,8 @@
       "nombre_completo": "Becerra Julián",
       "categoria": "M",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": null,
       "tramos_equipo": null,
       "tramos_persona": []
@@ -121,6 +139,8 @@
       "nombre_completo": "Becerra Maripaz",
       "categoria": "F",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": null,
       "tramos_equipo": null,
       "tramos_persona": []
@@ -130,6 +150,8 @@
       "nombre_completo": "Bravo Abner",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 1",
       "tramos_equipo": {
         "natacion": [
@@ -151,6 +173,8 @@
       "nombre_completo": "Bravo Matías",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 1",
       "tramos_equipo": {
         "natacion": [
@@ -172,6 +196,8 @@
       "nombre_completo": "Bustos Estefy",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 12",
       "tramos_equipo": {
         "natacion": [
@@ -193,6 +219,8 @@
       "nombre_completo": "Cabrera Elías",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pendiente",
+      "pagado": false,
       "equipo": "Equipo 18",
       "tramos_equipo": {
         "natacion": [
@@ -214,6 +242,8 @@
       "nombre_completo": "Cabrera Fernando",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pendiente",
+      "pagado": false,
       "equipo": "Equipo 18",
       "tramos_equipo": {
         "natacion": [
@@ -236,6 +266,8 @@
       "nombre_completo": "Cacuango Luis",
       "categoria": "M",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": null,
       "tramos_equipo": null,
       "tramos_persona": []
@@ -245,6 +277,8 @@
       "nombre_completo": "Cacuango Paulette",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 14",
       "tramos_equipo": {
         "natacion": [
@@ -266,6 +300,8 @@
       "nombre_completo": "Camacho Joseph",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 10",
       "tramos_equipo": {
         "natacion": [
@@ -288,6 +324,8 @@
       "nombre_completo": "Carrera Vielka",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pendiente",
+      "pagado": false,
       "equipo": "Equipo 11",
       "tramos_equipo": {
         "natacion": [
@@ -310,6 +348,8 @@
       "nombre_completo": "Cevallos Paulina",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 2",
       "tramos_equipo": {
         "natacion": [
@@ -331,6 +371,8 @@
       "nombre_completo": "Chilla Emilia",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 3",
       "tramos_equipo": {
         "natacion": [
@@ -352,6 +394,8 @@
       "nombre_completo": "Chirán Vladimir",
       "categoria": "M",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": null,
       "tramos_equipo": null,
       "tramos_persona": []
@@ -361,6 +405,8 @@
       "nombre_completo": "Dávila Melissa",
       "categoria": "F",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": null,
       "tramos_equipo": null,
       "tramos_persona": []
@@ -370,6 +416,8 @@
       "nombre_completo": "Delgado Diego",
       "categoria": "M",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": null,
       "tramos_equipo": null,
       "tramos_persona": []
@@ -379,6 +427,8 @@
       "nombre_completo": "Delgado Samuel",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 14",
       "tramos_equipo": {
         "natacion": [
@@ -400,6 +450,8 @@
       "nombre_completo": "Escalante Carlos",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 5",
       "tramos_equipo": {
         "natacion": [
@@ -421,6 +473,8 @@
       "nombre_completo": "Escalante Charlie",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 5",
       "tramos_equipo": {
         "natacion": [
@@ -442,6 +496,8 @@
       "nombre_completo": "Escalante Hady",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 5",
       "tramos_equipo": {
         "natacion": [
@@ -463,6 +519,8 @@
       "nombre_completo": "Espín Juanita",
       "categoria": "F",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": null,
       "tramos_equipo": null,
       "tramos_persona": []
@@ -472,6 +530,8 @@
       "nombre_completo": "Farina Laura Johanna",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 9",
       "tramos_equipo": {
         "natacion": [
@@ -492,6 +552,8 @@
       "nombre_completo": "Flores Paola",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 1",
       "tramos_equipo": {
         "natacion": [
@@ -513,6 +575,8 @@
       "nombre_completo": "Flores Yolanda",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 8",
       "tramos_equipo": {
         "natacion": [
@@ -534,6 +598,8 @@
       "nombre_completo": "Freire Josué",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 7",
       "tramos_equipo": {
         "natacion": [
@@ -555,6 +621,8 @@
       "nombre_completo": "García Javier",
       "categoria": "M",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": null,
       "tramos_equipo": null,
       "tramos_persona": []
@@ -564,6 +632,8 @@
       "nombre_completo": "García Kike",
       "categoria": "M",
       "dorsal": null,
+      "estado_pago": "pendiente",
+      "pagado": false,
       "equipo": null,
       "tramos_equipo": null,
       "tramos_persona": []
@@ -573,6 +643,8 @@
       "nombre_completo": "Valencia Gina",
       "categoria": "F",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": null,
       "tramos_equipo": null,
       "tramos_persona": []
@@ -582,6 +654,8 @@
       "nombre_completo": "Guerrero Gabriel",
       "categoria": "M",
       "dorsal": null,
+      "estado_pago": "pendiente",
+      "pagado": false,
       "equipo": null,
       "tramos_equipo": null,
       "tramos_persona": []
@@ -591,6 +665,8 @@
       "nombre_completo": "Henríquez Carolina",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 8",
       "tramos_equipo": {
         "natacion": [
@@ -612,6 +688,8 @@
       "nombre_completo": "Jara Correa Carlos",
       "categoria": "M",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": null,
       "tramos_equipo": null,
       "tramos_persona": []
@@ -621,6 +699,8 @@
       "nombre_completo": "León Patricia",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 4",
       "tramos_equipo": {
         "natacion": [
@@ -642,6 +722,8 @@
       "nombre_completo": "León Tomás",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 7",
       "tramos_equipo": {
         "natacion": [
@@ -663,6 +745,8 @@
       "nombre_completo": "Montaquiza Cami",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pendiente",
+      "pagado": false,
       "equipo": "Equipo 17",
       "tramos_equipo": {
         "natacion": [
@@ -684,6 +768,8 @@
       "nombre_completo": "Moreira Diogo",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pendiente",
+      "pagado": false,
       "equipo": "Equipo 13",
       "tramos_equipo": {
         "natacion": [],
@@ -704,6 +790,8 @@
       "nombre_completo": "Ojeda Gabriela",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 8",
       "tramos_equipo": {
         "natacion": [
@@ -725,6 +813,8 @@
       "nombre_completo": "Palomeque Lissette",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pendiente",
+      "pagado": false,
       "equipo": "Equipo 12",
       "tramos_equipo": {
         "natacion": [
@@ -746,6 +836,8 @@
       "nombre_completo": "Panta Doménica",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pendiente",
+      "pagado": false,
       "equipo": "Equipo 14",
       "tramos_equipo": {
         "natacion": [
@@ -767,6 +859,8 @@
       "nombre_completo": "Panta Stiven",
       "categoria": "M",
       "dorsal": null,
+      "estado_pago": "pendiente",
+      "pagado": false,
       "equipo": null,
       "tramos_equipo": null,
       "tramos_persona": []
@@ -776,6 +870,8 @@
       "nombre_completo": "Pérez Gabriela",
       "categoria": "F",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": null,
       "tramos_equipo": null,
       "tramos_persona": []
@@ -785,6 +881,8 @@
       "nombre_completo": "Pinargote Juliana",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 12",
       "tramos_equipo": {
         "natacion": [
@@ -806,6 +904,8 @@
       "nombre_completo": "Pinta Anderson",
       "categoria": "M",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": null,
       "tramos_equipo": null,
       "tramos_persona": []
@@ -815,6 +915,8 @@
       "nombre_completo": "Pizarro Andrés",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pendiente",
+      "pagado": false,
       "equipo": "Equipo 11",
       "tramos_equipo": {
         "natacion": [
@@ -836,6 +938,8 @@
       "nombre_completo": "Quinteros Felipe",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 3",
       "tramos_equipo": {
         "natacion": [
@@ -858,6 +962,8 @@
       "nombre_completo": "Rueda Diego",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pendiente",
+      "pagado": false,
       "equipo": "Equipo 16",
       "tramos_equipo": {
         "natacion": [
@@ -879,6 +985,8 @@
       "nombre_completo": "Rueda Mateo",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pendiente",
+      "pagado": false,
       "equipo": "Equipo 17",
       "tramos_equipo": {
         "natacion": [
@@ -901,6 +1009,8 @@
       "nombre_completo": "Rueda Paula",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 10",
       "tramos_equipo": {
         "natacion": [
@@ -922,6 +1032,8 @@
       "nombre_completo": "Rumiguano Robinson",
       "categoria": "M",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": null,
       "tramos_equipo": null,
       "tramos_persona": []
@@ -931,6 +1043,8 @@
       "nombre_completo": "Sáenz Juan Carlos",
       "categoria": "M",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": null,
       "tramos_equipo": null,
       "tramos_persona": []
@@ -940,6 +1054,8 @@
       "nombre_completo": "Salazar Darwin",
       "categoria": "M",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": null,
       "tramos_equipo": null,
       "tramos_persona": []
@@ -949,6 +1065,8 @@
       "nombre_completo": "Salazar Gianna",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 6",
       "tramos_equipo": {
         "natacion": [],
@@ -969,6 +1087,8 @@
       "nombre_completo": "Salvador Esteban",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 2",
       "tramos_equipo": {
         "natacion": [
@@ -990,6 +1110,8 @@
       "nombre_completo": "Salvador Fernando",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": "Equipo 2",
       "tramos_equipo": {
         "natacion": [
@@ -1011,6 +1133,8 @@
       "nombre_completo": "Sánchez Paola",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pendiente",
+      "pagado": false,
       "equipo": "Equipo 15",
       "tramos_equipo": {
         "natacion": [
@@ -1030,6 +1154,8 @@
       "nombre_completo": "Vargas Doris",
       "categoria": "Relevo",
       "dorsal": null,
+      "estado_pago": "pendiente",
+      "pagado": false,
       "equipo": "Equipo 15",
       "tramos_equipo": {
         "natacion": [
@@ -1049,6 +1175,8 @@
       "nombre_completo": "Villacreces Juan Carlos",
       "categoria": "M",
       "dorsal": null,
+      "estado_pago": "pagado",
+      "pagado": true,
       "equipo": null,
       "tramos_equipo": null,
       "tramos_persona": []

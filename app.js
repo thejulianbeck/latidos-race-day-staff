@@ -44,6 +44,29 @@
     return String(dorsal);
   }
 
+  /** pagado bool OR estado_pago/pago string; missing → pendiente (unpaid). */
+  function isPaid(person) {
+    if (!person) return false;
+    if (typeof person.pagado === "boolean") return person.pagado;
+    const raw = person.estado_pago != null ? person.estado_pago : person.pago;
+    if (raw === true || raw === 1) return true;
+    if (raw === false || raw === 0) return false;
+    const s = String(raw == null ? "" : raw)
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .trim();
+    if (!s) return false;
+    if (s === "pagado" || s === "pago" || s === "paid" || s === "si" || s === "yes" || s === "true") {
+      return true;
+    }
+    return false;
+  }
+
+  function pagoClass(person) {
+    return isPaid(person) ? "pago-ok" : "pago-pendiente";
+  }
+
   function byId(id) {
     return state.data.inscritos.find((p) => p.id === id) || null;
   }
@@ -148,6 +171,8 @@
     let people = state.data.inscritos.slice();
     if (filter === "M" || filter === "F") {
       people = people.filter((p) => p.categoria === filter);
+    } else if (filter === "sin_pagar") {
+      people = people.filter((p) => !isPaid(p));
     }
     people = people.filter((p) => matchesQuery(p, q));
     people.sort((a, b) =>
@@ -166,7 +191,9 @@
       btn.addEventListener("click", () => openFicha(p.id));
 
       const badgeClass =
-        p.categoria === "M" ? "m" : p.categoria === "F" ? "f" : "relevo";
+        (p.categoria === "M" ? "m" : p.categoria === "F" ? "f" : "relevo") +
+        " " +
+        pagoClass(p);
       const meta =
         p.categoria === "Relevo"
           ? "Relevo · " + (p.equipo || "Sin equipo")
@@ -200,8 +227,12 @@
       .map((name) => {
         const person = byName(name);
         const idAttr = person ? ' data-id="' + escapeAttr(person.id) + '"' : "";
+        // Per-person payment tint; unknown name → pendiente (red)
+        const payCls = " " + pagoClass(person);
         return (
-          '<button type="button" class="cell-btn" data-name="' +
+          '<button type="button" class="cell-btn' +
+          payCls +
+          '" data-name="' +
           escapeAttr(name) +
           '"' +
           idAttr +
@@ -249,6 +280,9 @@
         "</div></div>";
     }
 
+    const pagoLabel = isPaid(person) ? "Pagado" : "Sin pagar";
+    const pagoValClass = isPaid(person) ? "pago-ok" : "pago-pendiente";
+
     card.innerHTML =
       '<h2 class="ficha-name">' +
       escapeHtml(person.nombre_completo) +
@@ -260,6 +294,11 @@
       '<div class="field"><label>Dorsal</label><div class="value">' +
       dorsalVal +
       "</div></div>" +
+      '<div class="field"><label>Pago</label><div class="value"><span class="badge ' +
+      pagoValClass +
+      '">' +
+      escapeHtml(pagoLabel) +
+      "</span></div></div>" +
       '<div class="field"><label>ID</label><div class="value">' +
       escapeHtml(person.id) +
       "</div></div>" +
