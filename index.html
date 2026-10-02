@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#0f172a" />
+  <title>Latidos 2026 · Staff</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="topbar-main">
+        <h1>Latidos 2026</h1>
+        <p class="subtitle">Staff · día de carrera</p>
+      </div>
+      <button type="button" id="btn-back" class="btn-back hidden" aria-label="Volver">←</button>
+    </header>
+
+    <section id="view-list" class="view">
+      <div class="search-wrap">
+        <input
+          id="search"
+          type="search"
+          enterkeyhint="search"
+          autocomplete="off"
+          autocorrect="off"
+          spellcheck="false"
+          placeholder="Buscar por nombre o equipo…"
+          aria-label="Buscar"
+        />
+      </div>
+
+      <div class="filters" role="tablist" aria-label="Filtro por categoría">
+        <button type="button" class="chip active" data-filter="all" role="tab" aria-selected="true">Todos</button>
+        <button type="button" class="chip" data-filter="M" role="tab" aria-selected="false">M</button>
+        <button type="button" class="chip" data-filter="F" role="tab" aria-selected="false">F</button>
+        <button type="button" class="chip" data-filter="Relevo" role="tab" aria-selected="false">Relevo</button>
+      </div>
+
+      <p id="count" class="count" aria-live="polite"></p>
+
+      <div id="list-athletes" class="list" hidden></div>
+
+      <div id="list-equipos" class="equipos-wrap" hidden>
+        <div class="table-scroll">
+          <table class="relevo-table" aria-label="Equipos de relevo">
+            <thead>
+              <tr>
+                <th scope="col">Equipo</th>
+                <th scope="col">Natación</th>
+                <th scope="col">Bici</th>
+                <th scope="col">Carrera</th>
+              </tr>
+            </thead>
+            <tbody id="equipos-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <p id="empty" class="empty hidden">No hay resultados.</p>
+    </section>
+
+    <section id="view-ficha" class="view hidden" aria-live="polite"></section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
