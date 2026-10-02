@@ -200,6 +200,26 @@ body {
 .badge.f { background: #fce7f3; color: #be185d; }
 .badge.relevo { background: #ede9fe; color: #6d28d9; }
 
+/* Payment status — subtle tint on category badges (phone-readable, not neon) */
+.badge.pago-ok {
+  box-shadow: inset 0 0 0 1.5px rgba(22, 163, 74, 0.55);
+  background-image: linear-gradient(rgba(220, 252, 231, 0.55), rgba(220, 252, 231, 0.55));
+}
+.badge.pago-pendiente {
+  box-shadow: inset 0 0 0 1.5px rgba(220, 38, 38, 0.5);
+  background-image: linear-gradient(rgba(254, 226, 226, 0.6), rgba(254, 226, 226, 0.6));
+}
+
+.cell-btn.pago-ok {
+  border-color: rgba(22, 163, 74, 0.35);
+  background: #f0fdf4;
+}
+.cell-btn.pago-pendiente {
+  border-color: rgba(220, 38, 38, 0.35);
+  background: #fef2f2;
+}
+
+
 .equipos-wrap {
   margin: 0 -16px;
   padding: 0 16px 8px;
