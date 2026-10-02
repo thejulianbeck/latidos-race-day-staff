@@ -116,6 +116,7 @@
 
     if (filter === "Relevo") {
       els.listAthletes.hidden = true;
+      els.listAthletes.replaceChildren();
       els.listEquipos.hidden = false;
       const equipos = (state.data.equipos || [])
         .slice()
@@ -142,6 +143,7 @@
 
     els.listAthletes.hidden = false;
     els.listEquipos.hidden = true;
+    els.equiposBody.replaceChildren();
 
     let people = state.data.inscritos.slice();
     if (filter === "M" || filter === "F") {
