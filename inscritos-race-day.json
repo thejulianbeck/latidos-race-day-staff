@@ -1,7 +1,7 @@
 {
   "evento": "Gracia Latidos 2026",
   "fuente": "latidos-ops/inscripciones.csv",
-  "nota": "Solo lectura. dorsal aún no asignado (null/vacío). En relevos, 'carrera' = trote del canónico.",
+  "nota": "Solo lectura. dorsal aún no asignado. carrera = trote del canónico.",
   "total": 62,
   "inscritos": [
     {
@@ -570,7 +570,7 @@
     },
     {
       "id": "034",
-      "nombre_completo": "Gina",
+      "nombre_completo": "Valencia Gina",
       "categoria": "F",
       "dorsal": null,
       "equipo": null,
