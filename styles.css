@@ -389,3 +389,132 @@ body {
 .ficha .relevo-table {
   min-width: 460px;
 }
+
+/* ---------- Bloqueo / PIN de staff ---------- */
+.btn-lock {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+  cursor: pointer;
+}
+
+.btn-lock:active { background: var(--chip); }
+
+.lock {
+  display: flex;
+  justify-content: center;
+  padding-top: 28px;
+}
+
+.lock-card {
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+}
+
+.lock-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  background: var(--ink);
+  color: #fff;
+}
+
+.lock-title {
+  margin: 14px 0 4px;
+  font-size: 1.35rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+.lock-help {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.pin-dots {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin: 26px 0 10px;
+}
+
+.pin-dots span {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #94a3b8;
+  transition: background 0.12s, border-color 0.12s;
+}
+
+.pin-dots span.filled {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.pin-dots.shake { animation: pin-shake 0.36s; }
+
+@keyframes pin-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}
+
+.pin-status {
+  min-height: 1.4em;
+  margin: 0 0 14px;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.pin-status.error {
+  color: #b91c1c;
+  font-weight: 600;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 0 8px;
+}
+
+.keypad.busy { opacity: 0.5; pointer-events: none; }
+
+.key {
+  height: 64px;
+  border: 0;
+  border-radius: 16px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1.6rem;
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+  cursor: pointer;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.key:active { background: var(--chip); }
+
+.key-empty { background: transparent; box-shadow: none; }
+
+.key-del { font-size: 1.3rem; color: var(--muted); }

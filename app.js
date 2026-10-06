@@ -402,24 +402,236 @@
     });
   }
 
-  async function boot() {
+  // ---------- PIN / cifrado ----------
+  const DATA_URL = "data.enc.json";
+  const STORE_KEY = "latidos-staff-unlock-v1";
+  const PIN_LEN = 6;
+
+  const lock = {
+    env: null,
+    pin: "",
+    busy: false,
+    els: {
+      view: document.getElementById("view-lock"),
+      dots: Array.from(document.querySelectorAll("#pin-dots span")),
+      dotsWrap: document.getElementById("pin-dots"),
+      status: document.getElementById("pin-status"),
+      keypad: document.getElementById("keypad"),
+      btnLock: document.getElementById("btn-lock"),
+    },
+  };
+
+  function b64ToBytes(s) {
+    const bin = atob(s);
+    const out = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+    return out;
+  }
+
+  function bytesToB64(buf) {
+    const bytes = new Uint8Array(buf);
+    let bin = "";
+    for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+    return btoa(bin);
+  }
+
+  async function deriveKey(pin, env) {
+    const base = await crypto.subtle.importKey(
+      "raw",
+      new TextEncoder().encode(pin),
+      "PBKDF2",
+      false,
+      ["deriveKey"]
+    );
+    // extractable: se guarda la clave derivada (no el PIN) para recordar el dispositivo
+    return crypto.subtle.deriveKey(
+      { name: "PBKDF2", hash: "SHA-256", salt: b64ToBytes(env.salt), iterations: env.iter },
+      base,
+      { name: "AES-GCM", length: 256 },
+      true,
+      ["decrypt"]
+    );
+  }
+
+  async function decryptWith(key, env) {
+    const pt = await crypto.subtle.decrypt(
+      { name: "AES-GCM", iv: b64ToBytes(env.iv) },
+      key,
+      b64ToBytes(env.ct)
+    );
+    return JSON.parse(new TextDecoder().decode(pt));
+  }
+
+  function readStored() {
     try {
-      const res = await fetch("inscritos-race-day.json", { cache: "no-store" });
+      return JSON.parse(localStorage.getItem(STORE_KEY) || "null");
+    } catch (e) {
+      return null;
+    }
+  }
+
+  async function saveKey(key, env) {
+    try {
+      const raw = await crypto.subtle.exportKey("raw", key);
+      localStorage.setItem(
+        STORE_KEY,
+        JSON.stringify({ salt: env.salt, iter: env.iter, key: bytesToB64(raw) })
+      );
+    } catch (e) {
+      /* modo privado / sin almacenamiento: solo dura esta sesión */
+    }
+  }
+
+  function clearStored() {
+    try {
+      localStorage.removeItem(STORE_KEY);
+    } catch (e) {
+      /* nada */
+    }
+  }
+
+  async function tryStoredKey(env) {
+    const s = readStored();
+    if (!s || s.salt !== env.salt || s.iter !== env.iter || !s.key) return null;
+    try {
+      const key = await crypto.subtle.importKey(
+        "raw",
+        b64ToBytes(s.key),
+        { name: "AES-GCM" },
+        false,
+        ["decrypt"]
+      );
+      return await decryptWith(key, env);
+    } catch (e) {
+      clearStored(); // PIN cambió o datos nuevos con otra clave
+      return null;
+    }
+  }
+
+  function renderDots() {
+    lock.els.dots.forEach((d, i) => d.classList.toggle("filled", i < lock.pin.length));
+  }
+
+  function setStatus(msg, kind) {
+    lock.els.status.textContent = msg || "";
+    lock.els.status.className = "pin-status" + (kind ? " " + kind : "");
+  }
+
+  function setBusy(on) {
+    lock.busy = on;
+    lock.els.keypad.classList.toggle("busy", on);
+  }
+
+  async function submitPin() {
+    if (lock.busy || !lock.env) return;
+    const pin = lock.pin;
+    setBusy(true);
+    setStatus("Verificando…");
+    try {
+      const key = await deriveKey(pin, lock.env);
+      const data = await decryptWith(key, lock.env);
+      await saveKey(key, lock.env);
+      setStatus("");
+      unlock(data);
+    } catch (e) {
+      lock.pin = "";
+      renderDots();
+      setStatus("PIN incorrecto. Inténtalo de nuevo.", "error");
+      lock.els.dotsWrap.classList.remove("shake");
+      void lock.els.dotsWrap.offsetWidth; // reinicia la animación
+      lock.els.dotsWrap.classList.add("shake");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  function pressKey(k) {
+    if (lock.busy) return;
+    if (k === "del") {
+      lock.pin = lock.pin.slice(0, -1);
+    } else if (/^\d$/.test(k) && lock.pin.length < PIN_LEN) {
+      lock.pin += k;
+      if (lock.els.status.classList.contains("error")) setStatus("");
+    }
+    renderDots();
+    if (lock.pin.length === PIN_LEN) submitPin();
+  }
+
+  function wireLock() {
+    lock.els.keypad.addEventListener("click", (e) => {
+      const btn = e.target.closest("button[data-key]");
+      if (btn) pressKey(btn.dataset.key);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (lock.els.view.hidden) return;
+      if (/^\d$/.test(e.key)) pressKey(e.key);
+      else if (e.key === "Backspace") pressKey("del");
+    });
+    lock.els.btnLock.addEventListener("click", () => {
+      clearStored();
+      // Recargar limpia los datos descifrados de la memoria
+      location.replace(location.pathname + location.search);
+    });
+  }
+
+  function showLock() {
+    lock.els.view.hidden = false;
+    els.viewList.hidden = true;
+    els.viewFicha.hidden = true;
+    els.btnBack.classList.add("hidden");
+    lock.els.btnLock.hidden = true;
+    lock.pin = "";
+    renderDots();
+  }
+
+  function unlock(data) {
+    state.data = data;
+    lock.els.view.hidden = true;
+    els.viewList.hidden = false;
+    els.viewFicha.hidden = false;
+    lock.els.btnLock.hidden = false;
+    wire();
+    const m = location.hash.match(/^#ficha\/(.+)$/);
+    if (m) {
+      state.view = "ficha";
+      state.selectedId = decodeURIComponent(m[1]);
+    }
+    render();
+  }
+
+  function fatal(title, msg) {
+    document.getElementById("app").innerHTML =
+      '<div style="padding:24px;font-family:system-ui">' +
+      "<h1>" +
+      escapeHtml(title) +
+      "</h1><p>" +
+      escapeHtml(msg) +
+      "</p></div>";
+  }
+
+  async function boot() {
+    if (!window.crypto || !crypto.subtle) {
+      fatal("Navegador no compatible", "Abre esta página con https en un navegador actualizado.");
+      return;
+    }
+    wireLock();
+    showLock();
+    setBusy(true);
+    setStatus("Cargando…");
+    try {
+      const res = await fetch(DATA_URL, { cache: "no-store" });
       if (!res.ok) throw new Error("HTTP " + res.status);
-      state.data = await res.json();
-      wire();
-      const m = location.hash.match(/^#ficha\/(.+)$/);
-      if (m) {
-        state.view = "ficha";
-        state.selectedId = decodeURIComponent(m[1]);
-      }
-      render();
+      lock.env = await res.json();
+      const data = await tryStoredKey(lock.env);
+      setBusy(false);
+      setStatus("");
+      if (data) unlock(data);
     } catch (err) {
-      document.getElementById("app").innerHTML =
-        '<div style="padding:24px;font-family:system-ui">' +
-        "<h1>No se pudo cargar</h1><p>" +
-        escapeHtml(String(err && err.message ? err.message : err)) +
-        "</p></div>";
+      setBusy(false);
+      fatal(
+        "No se pudo cargar",
+        String(err && err.message ? err.message : err) + ". Revisa tu conexión e inténtalo de nuevo."
+      );
     }
   }
 

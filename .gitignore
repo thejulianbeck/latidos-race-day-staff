@@ -1,0 +1,7 @@
+# Nunca subir datos en claro ni el PIN de staff.
+.staff-pin
+*.pin
+*.json
+!data.enc.json
+node_modules/
+.DS_Store

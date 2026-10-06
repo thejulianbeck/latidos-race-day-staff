@@ -17,9 +17,41 @@
         <p class="subtitle">Staff · día de carrera</p>
       </div>
       <button type="button" id="btn-back" class="btn-back hidden" aria-label="Volver">←</button>
+      <button type="button" id="btn-lock" class="btn-lock" aria-label="Cerrar sesión" hidden>
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm-3 8V7a3 3 0 1 1 6 0v3H9z"/></svg>
+        <span>Bloquear</span>
+      </button>
     </header>
 
-    <section id="view-list" class="view">
+    <section id="view-lock" class="view lock" aria-labelledby="lock-title">
+      <div class="lock-card">
+        <div class="lock-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm-3 8V7a3 3 0 1 1 6 0v3H9z"/></svg>
+        </div>
+        <h2 id="lock-title" class="lock-title">PIN de staff</h2>
+        <p class="lock-help">Ingresa el PIN de 6 dígitos para ver la lista.</p>
+        <div id="pin-dots" class="pin-dots" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <p id="pin-status" class="pin-status" role="status" aria-live="polite"></p>
+        <div id="keypad" class="keypad" role="group" aria-label="Teclado numérico">
+          <button type="button" class="key" data-key="1">1</button>
+          <button type="button" class="key" data-key="2">2</button>
+          <button type="button" class="key" data-key="3">3</button>
+          <button type="button" class="key" data-key="4">4</button>
+          <button type="button" class="key" data-key="5">5</button>
+          <button type="button" class="key" data-key="6">6</button>
+          <button type="button" class="key" data-key="7">7</button>
+          <button type="button" class="key" data-key="8">8</button>
+          <button type="button" class="key" data-key="9">9</button>
+          <span class="key key-empty" aria-hidden="true"></span>
+          <button type="button" class="key" data-key="0">0</button>
+          <button type="button" class="key key-del" data-key="del" aria-label="Borrar">⌫</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-list" class="view" hidden>
       <div class="search-wrap">
         <input
           id="search"
@@ -64,7 +96,7 @@
       <p id="empty" class="empty hidden">No hay resultados.</p>
     </section>
 
-    <section id="view-ficha" class="view hidden" aria-live="polite"></section>
+    <section id="view-ficha" class="view hidden" aria-live="polite" hidden></section>
   </div>
 
   <script src="app.js"></script>
