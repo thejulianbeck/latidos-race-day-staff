@@ -302,6 +302,12 @@
       '<div class="field"><label>ID</label><div class="value">' +
       escapeHtml(person.id) +
       "</div></div>" +
+      '<div class="field"><label>Teléfono</label><div class="value">' +
+      (person.telefono ? '<a href="tel:' + escapeHtml(person.telefono) + '">' + escapeHtml(person.telefono) + "</a>" : "—") +
+      "</div></div>" +
+      '<div class="field"><label>Talla</label><div class="value">' +
+      escapeHtml(person.talla || "—") +
+      "</div></div>" +
       (person.categoria === "Relevo"
         ? '<div class="field"><label>Equipo</label><div class="value">' +
           escapeHtml(person.equipo || "—") +
