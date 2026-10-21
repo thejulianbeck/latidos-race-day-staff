@@ -173,6 +173,8 @@
       people = people.filter((p) => p.categoria === filter);
     } else if (filter === "sin_pagar") {
       people = people.filter((p) => !isPaid(p));
+    } else if (filter === "sin_talla") {
+      people = people.filter((p) => !p.talla);
     }
     people = people.filter((p) => matchesQuery(p, q));
     people.sort((a, b) =>
