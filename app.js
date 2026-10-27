@@ -175,6 +175,10 @@
       people = people.filter((p) => !isPaid(p));
     } else if (filter === "sin_talla") {
       people = people.filter((p) => !p.talla);
+    } else if (filter === "sin_equipo") {
+      people = people.filter(
+        (p) => p.categoria === "Relevo" && !(p.equipo && String(p.equipo).trim())
+      );
     }
     people = people.filter((p) => matchesQuery(p, q));
     people.sort((a, b) =>
@@ -196,10 +200,18 @@
         (p.categoria === "M" ? "m" : p.categoria === "F" ? "f" : "relevo") +
         " " +
         pagoClass(p);
-      const meta =
-        p.categoria === "Relevo"
-          ? "Relevo · " + (p.equipo || "Sin equipo")
-          : p.categoria + " · " + dorsalText(p.dorsal);
+      let meta;
+      if (p.categoria === "Relevo") {
+        const legs = (p.tramos_persona || [])
+          .map((t) => TRAMO_LABEL[t] || t)
+          .filter(Boolean);
+        meta =
+          "Relevo · " +
+          (p.equipo || "Sin equipo") +
+          (legs.length ? " · " + legs.join(", ") : "");
+      } else {
+        meta = p.categoria + " · " + dorsalText(p.dorsal);
+      }
 
       btn.innerHTML =
         '<span class="badge ' +
