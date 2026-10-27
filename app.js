@@ -179,6 +179,8 @@
       people = people.filter(
         (p) => p.categoria === "Relevo" && !(p.equipo && String(p.equipo).trim())
       );
+    } else if (filter === "patrocinados") {
+      people = people.filter((p) => p.patrocinado === true);
     }
     people = people.filter((p) => matchesQuery(p, q));
     people.sort((a, b) =>
@@ -208,9 +210,14 @@
         meta =
           "Relevo · " +
           (p.equipo || "Sin equipo") +
-          (legs.length ? " · " + legs.join(", ") : "");
+          (legs.length ? " · " + legs.join(", ") : "") +
+          (p.patrocinado ? " · Patrocinado" : "");
       } else {
-        meta = p.categoria + " · " + dorsalText(p.dorsal);
+        meta =
+          p.categoria +
+          " · " +
+          dorsalText(p.dorsal) +
+          (p.patrocinado ? " · Patrocinado" : "");
       }
 
       btn.innerHTML =
