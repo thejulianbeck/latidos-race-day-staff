@@ -47,6 +47,7 @@
   /** pagado bool OR estado_pago/pago string; missing → pendiente (unpaid). */
   function isPaid(person) {
     if (!person) return false;
+    if (person.patrocinado === true) return true;
     if (typeof person.pagado === "boolean") return person.pagado;
     const raw = person.estado_pago != null ? person.estado_pago : person.pago;
     if (raw === true || raw === 1) return true;
@@ -64,6 +65,7 @@
   }
 
   function pagoClass(person) {
+    if (person && person.patrocinado === true) return "pago-patrocinado";
     return isPaid(person) ? "pago-ok" : "pago-pendiente";
   }
 
@@ -172,7 +174,7 @@
     if (filter === "M" || filter === "F") {
       people = people.filter((p) => p.categoria === filter);
     } else if (filter === "sin_pagar") {
-      people = people.filter((p) => !isPaid(p));
+      people = people.filter((p) => !isPaid(p) && p.patrocinado !== true);
     } else if (filter === "sin_talla") {
       people = people.filter((p) => !p.talla);
     } else if (filter === "sin_equipo") {
@@ -301,8 +303,12 @@
         "</div></div>";
     }
 
-    const pagoLabel = isPaid(person) ? "Pagado" : "Sin pagar";
-    const pagoValClass = isPaid(person) ? "pago-ok" : "pago-pendiente";
+    const pagoLabel = person.patrocinado
+      ? "Patrocinado"
+      : isPaid(person)
+        ? "Pagado"
+        : "Sin pagar";
+    const pagoValClass = pagoClass(person);
 
     card.innerHTML =
       '<h2 class="ficha-name">' +
