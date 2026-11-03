@@ -171,8 +171,11 @@
     els.equiposBody.replaceChildren();
 
     let people = state.data.inscritos.slice();
+    const isComp = (p) => ["M", "F", "Relevo"].includes(p.categoria);
     if (filter === "M" || filter === "F") {
       people = people.filter((p) => p.categoria === filter);
+    } else if (filter === "all" || !filter) {
+      people = people.filter(isComp);
     } else if (filter === "sin_pagar") {
       people = people.filter((p) => !isPaid(p) && p.patrocinado !== true);
     } else if (filter === "sin_talla") {
@@ -201,11 +204,13 @@
       btn.addEventListener("click", () => openFicha(p.id));
 
       const badgeClass =
-        (p.categoria === "M" ? "m" : p.categoria === "F" ? "f" : "relevo") +
+        (p.categoria === "M" ? "m" : p.categoria === "F" ? "f" : isComp(p) ? "relevo" : "solo") +
         " " +
         pagoClass(p);
       let meta;
-      if (p.categoria === "Relevo") {
+      if (!isComp(p)) {
+        meta = "Solo camiseta · no compite";
+      } else if (p.categoria === "Relevo") {
         const legs = (p.tramos_persona || [])
           .map((t) => TRAMO_LABEL[t] || t)
           .filter(Boolean);
@@ -226,7 +231,7 @@
         '<span class="badge ' +
         badgeClass +
         '">' +
-        escapeHtml(p.categoria === "Relevo" ? "R" : p.categoria) +
+        escapeHtml(p.categoria === "Relevo" ? "R" : isComp(p) ? p.categoria : "C") +
         "</span>" +
         '<span class="athlete-main">' +
         '<div class="athlete-name">' +
@@ -316,7 +321,7 @@
       "</h2>" +
       '<div class="ficha-grid">' +
       '<div class="field"><label>Categoría</label><div class="value">' +
-      escapeHtml(person.categoria) +
+      escapeHtml(person.categoria || "Solo camiseta (no compite)") +
       "</div></div>" +
       '<div class="field"><label>Dorsal</label><div class="value">' +
       dorsalVal +

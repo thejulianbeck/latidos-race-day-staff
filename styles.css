@@ -527,3 +527,4 @@ body {
 .key-empty { background: transparent; box-shadow: none; }
 
 .key-del { font-size: 1.3rem; color: var(--muted); }
+.badge.solo{background:#e5e7eb;color:#374151}
