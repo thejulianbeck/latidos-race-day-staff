@@ -171,7 +171,7 @@
     els.equiposBody.replaceChildren();
 
     let people = state.data.inscritos.slice();
-    const isComp = (p) => ["M", "F", "Relevo"].includes(p.categoria);
+    const isComp = (p) => p.modalidad !== "solo_camiseta" && ["M", "F", "Relevo"].includes(p.categoria);
     if (filter === "M" || filter === "F") {
       people = people.filter((p) => p.categoria === filter);
     } else if (filter === "all" || !filter) {
