@@ -246,7 +246,7 @@
         "</span>" +
         '<span class="athlete-main">' +
         '<div class="athlete-name">' +
-        escapeHtml(p.nombre_completo) +
+        escapeHtml(p.nombre_completo) + militarTag(p) +
         "</div>" +
         '<div class="athlete-meta">' +
         escapeHtml(meta) +
@@ -328,7 +328,7 @@
 
     card.innerHTML =
       '<h2 class="ficha-name">' +
-      escapeHtml(person.nombre_completo) +
+      escapeHtml(person.nombre_completo) + militarTag(person) +
       "</h2>" +
       '<div class="ficha-grid">' +
       '<div class="field"><label>Categoría</label><div class="value">' +
@@ -479,6 +479,11 @@
     return bloques;
   }
 
+  function militarTag(p) {
+    if (!p || !(p.militar === true || p.rango)) return "";
+    return ' <span class="militar-tag">★ ' + escapeHtml(p.rango || "Militar") + "</span>";
+  }
+
   function noAsiste(p) {
     if (!p) return false;
     return p.no_asiste === true || p.asiste === false ||
@@ -505,7 +510,7 @@
         btn.addEventListener("click", () => openFicha(it.person.id));
         btn.innerHTML =
           '<span class="badge carril">' + it.carril + escapeHtml(it.pos || "") + "</span>" +
-          '<span class="athlete-main"><div class="athlete-name">' + escapeHtml(it.person.nombre_completo) +
+          '<span class="athlete-main"><div class="athlete-name">' + escapeHtml(it.person.nombre_completo) + militarTag(it.person) +
           '</div><div class="athlete-meta">Carril ' + it.carril + (it.pos ? " " + escapeHtml(it.pos) : "") + " · " + escapeHtml(it.meta) + (it.provisional ? " · Provisional" : "") + ((noAsiste(it.person) || it.no_asiste) ? ' · <strong class="no-asiste-tag">No asiste</strong>' : (it.person.dudoso ? " · Dudoso" : "")) + "</div></span>";
         els.listAthletes.appendChild(btn);
       });
@@ -520,7 +525,7 @@
         btn.type = "button";
         btn.className = "athlete-row no-asiste";
         btn.addEventListener("click", () => openFicha(it.person.id));
-        btn.innerHTML = '<span class="badge carril">–</span><span class="athlete-main"><div class="athlete-name">' + escapeHtml(it.person.nombre_completo) + '</div><div class="athlete-meta">Sin carril · ' + escapeHtml(it.meta) + ' · <strong class="no-asiste-tag">No asiste</strong></div></span>';
+        btn.innerHTML = '<span class="badge carril">–</span><span class="athlete-main"><div class="athlete-name">' + escapeHtml(it.person.nombre_completo) + militarTag(it.person) + '</div><div class="athlete-meta">Sin carril · ' + escapeHtml(it.meta) + ' · <strong class="no-asiste-tag">No asiste</strong></div></span>';
         els.listAthletes.appendChild(btn);
       });
     });

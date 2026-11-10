@@ -534,3 +534,4 @@ body {
 .dudoso-tag{font-size:.75rem;font-weight:600;color:#b45309;margin-top:2px}
 .athlete-row.no-asiste{opacity:.5}.athlete-row.no-asiste .athlete-name{text-decoration:line-through}.no-asiste-tag{color:#b91c1c}
 .athlete-row.carril-libre{opacity:.55;border-style:dashed}
+.militar-tag{display:inline-block;margin-left:.4em;padding:.1em .5em;border-radius:999px;background:#1f3d2b;color:#f5d76e;font-size:.72em;font-weight:700;vertical-align:middle;white-space:nowrap}
