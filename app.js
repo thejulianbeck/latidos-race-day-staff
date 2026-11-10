@@ -358,7 +358,7 @@
         : "") +
       ((person.bloque_natacion || []).length
         ? '<div class="field"><label>Natación</label><div class="value">' +
-          person.bloque_natacion.map((b) => "Bloque " + b.bloque + ", carril " + b.carril + (b.equipo ? " (" + escapeHtml(b.equipo) + ")" : "")).join("<br>") +
+          person.bloque_natacion.map((b) => "Heat " + (b.heat || b.bloque) + ", carril " + b.carril + (b.equipo ? " (" + escapeHtml(b.equipo) + ")" : "")).join("<br>") +
           "</div></div>"
         : "") +
       "</div>";
@@ -477,7 +477,7 @@
       if (!items.length) return;
       const h = document.createElement("div");
       h.className = "bloque-head";
-      h.textContent = "Bloque " + b.numero + " · " + b.label + " · " + b.items.length + " de 16 carriles";
+      h.textContent = "Heat " + b.numero + " · " + b.label + " · " + b.items.length + " nadadores";
       els.listAthletes.appendChild(h);
       items.forEach((it) => {
         total++;
@@ -492,7 +492,7 @@
         els.listAthletes.appendChild(btn);
       });
     });
-    els.count.textContent = bloques.length + " bloques · " + total + " nadadores";
+    els.count.textContent = bloques.length + " heats · " + total + " nadadores";
     els.empty.classList.toggle("hidden", total > 0);
   }
 
