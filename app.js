@@ -434,6 +434,11 @@
           const p = (c.id && byId(c.id)) || byName(c.nombre || c.nadador);
           return p ? { carril: c.carril, pos: c.posicion || "", provisional: !!c.provisional, no_asiste: noAsiste(c), person: p, meta: c.equipo ? "Relevo · " + c.equipo + (c.tobilleras > 1 ? " · " + c.tobilleras + " tobilleras" : "") : b.categoria } : null;
         }).filter(Boolean),
+        libres: b.carriles_libres || [],
+        sinCarril: (b.sin_carril_no_asisten || []).map((c) => {
+          const p = (c.id && byId(c.id)) || byName(c.nombre || c.nadador);
+          return p ? { person: p, meta: c.equipo ? "Relevo · " + c.equipo : b.categoria } : null;
+        }).filter(Boolean),
       }));
     }
     const LANES = 16;
@@ -502,6 +507,20 @@
           '<span class="badge carril">' + it.carril + escapeHtml(it.pos || "") + "</span>" +
           '<span class="athlete-main"><div class="athlete-name">' + escapeHtml(it.person.nombre_completo) +
           '</div><div class="athlete-meta">Carril ' + it.carril + (it.pos ? " " + escapeHtml(it.pos) : "") + " · " + escapeHtml(it.meta) + (it.provisional ? " · Provisional" : "") + ((noAsiste(it.person) || it.no_asiste) ? ' · <strong class="no-asiste-tag">No asiste</strong>' : (it.person.dudoso ? " · Dudoso" : "")) + "</div></span>";
+        els.listAthletes.appendChild(btn);
+      });
+      if (!q) (b.libres || []).forEach((n) => {
+        const d = document.createElement("div");
+        d.className = "athlete-row carril-libre";
+        d.innerHTML = '<span class="badge carril">' + escapeHtml(String(n)) + '</span><span class="athlete-main"><div class="athlete-name">Carril ' + escapeHtml(String(n)) + ' libre</div></span>';
+        els.listAthletes.appendChild(d);
+      });
+      (b.sinCarril || []).filter((it) => matchesQuery(it.person, q)).forEach((it) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "athlete-row no-asiste";
+        btn.addEventListener("click", () => openFicha(it.person.id));
+        btn.innerHTML = '<span class="badge carril">–</span><span class="athlete-main"><div class="athlete-name">' + escapeHtml(it.person.nombre_completo) + '</div><div class="athlete-meta">Sin carril · ' + escapeHtml(it.meta) + ' · <strong class="no-asiste-tag">No asiste</strong></div></span>';
         els.listAthletes.appendChild(btn);
       });
     });

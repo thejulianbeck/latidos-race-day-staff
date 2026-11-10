@@ -533,3 +533,4 @@ body {
 .badge.carril{background:#dbeafe;color:#1e3a8a}
 .dudoso-tag{font-size:.75rem;font-weight:600;color:#b45309;margin-top:2px}
 .athlete-row.no-asiste{opacity:.5}.athlete-row.no-asiste .athlete-name{text-decoration:line-through}.no-asiste-tag{color:#b91c1c}
+.athlete-row.carril-libre{opacity:.55;border-style:dashed}
