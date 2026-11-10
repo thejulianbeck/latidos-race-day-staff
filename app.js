@@ -353,6 +353,9 @@
           "</div></div>"
         : "") +
       legsHtml +
+      (person.nota || person.notas
+        ? '<div class="field"><label>Nota</label><div class="value">' + escapeHtml(person.nota || person.notas) + "</div></div>"
+        : "") +
       ((person.bloque_natacion || []).length
         ? '<div class="field"><label>Natación</label><div class="value">' +
           person.bloque_natacion.map((b) => "Bloque " + b.bloque + ", carril " + b.carril + (b.equipo ? " (" + escapeHtml(b.equipo) + ")" : "")).join("<br>") +
