@@ -170,6 +170,11 @@
     els.listEquipos.hidden = true;
     els.equiposBody.replaceChildren();
 
+    if (filter === "bloques") {
+      renderBloques(q);
+      return;
+    }
+
     let people = state.data.inscritos.slice();
     const isComp = (p) => p.modalidad !== "solo_camiseta" && ["M", "F", "Relevo"].includes(p.categoria);
     if (filter === "M" || filter === "F") {
@@ -403,6 +408,74 @@
     }
 
     root.appendChild(wrap);
+  }
+
+  function buildBloques() {
+    const LANES = 16;
+    const all = state.data.inscritos;
+    const isComp = (p) => p.modalidad !== "solo_camiseta" && ["M", "F", "Relevo"].includes(p.categoria);
+    const alpha = (a, b) => a.nombre_completo.localeCompare(b.nombre_completo, "es", { sensitivity: "base" });
+    const groups = [];
+    [["M", "Triatlón masculino"], ["F", "Triatlón femenino"]].forEach(([cat, label]) => {
+      const ppl = all.filter((p) => isComp(p) && p.categoria === cat).sort(alpha)
+        .map((p) => ({ person: p, meta: label }));
+      groups.push({ label, items: ppl });
+    });
+    const swimmers = [];
+    const seen = new Map();
+    (state.data.equipos || []).slice().sort((a, b) => (a.numero || 0) - (b.numero || 0)).forEach((eq) => {
+      (eq.natacion || []).forEach((name) => {
+        const p = byName(name);
+        if (!p) return;
+        if (seen.has(p.id)) { seen.get(p.id).teams.push(eq.equipo); return; }
+        const it = { person: p, teams: [eq.equipo] };
+        seen.set(p.id, it);
+        swimmers.push(it);
+      });
+    });
+    swimmers.forEach((it) => { it.meta = "Relevo · " + it.teams.join(" y ") + (it.teams.length > 1 ? " · nada con " + it.teams.length + " tobilleras" : ""); });
+    groups.push({ label: "Relevos (nadadores)", items: swimmers });
+    const bloques = [];
+    groups.forEach((g) => {
+      const n = Math.ceil(g.items.length / LANES);
+      for (let i = 0; i < n; i++) {
+        bloques.push({
+          numero: bloques.length + 1,
+          label: g.label + (n > 1 ? " (" + (i + 1) + " de " + n + ")" : ""),
+          items: g.items.slice(i * LANES, (i + 1) * LANES),
+        });
+      }
+    });
+    return bloques;
+  }
+
+  function renderBloques(q) {
+    const bloques = buildBloques();
+    els.listAthletes.innerHTML = "";
+    let total = 0;
+    bloques.forEach((b) => {
+      const items = b.items.map((it, i) => Object.assign({ carril: i + 1 }, it))
+        .filter((it) => matchesQuery(it.person, q));
+      if (!items.length) return;
+      const h = document.createElement("div");
+      h.className = "bloque-head";
+      h.textContent = "Bloque " + b.numero + " · " + b.label + " · " + b.items.length + " de 16 carriles";
+      els.listAthletes.appendChild(h);
+      items.forEach((it) => {
+        total++;
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "athlete-row";
+        btn.addEventListener("click", () => openFicha(it.person.id));
+        btn.innerHTML =
+          '<span class="badge carril">' + it.carril + "</span>" +
+          '<span class="athlete-main"><div class="athlete-name">' + escapeHtml(it.person.nombre_completo) +
+          '</div><div class="athlete-meta">Carril ' + it.carril + " · " + escapeHtml(it.meta) + "</div></span>";
+        els.listAthletes.appendChild(btn);
+      });
+    });
+    els.count.textContent = bloques.length + " bloques · " + total + " nadadores";
+    els.empty.classList.toggle("hidden", total > 0);
   }
 
   function escapeHtml(s) {

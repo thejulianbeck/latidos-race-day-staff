@@ -528,3 +528,6 @@ body {
 
 .key-del { font-size: 1.3rem; color: var(--muted); }
 .badge.solo{background:#e5e7eb;color:#374151}
+
+.bloque-head{margin:18px 4px 8px;font-weight:700;font-size:1.05rem;color:#111827}
+.badge.carril{background:#dbeafe;color:#1e3a8a}
