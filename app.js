@@ -344,7 +344,7 @@
       "</div></div>" +
       (person.categoria === "Relevo"
         ? '<div class="field"><label>Equipo</label><div class="value">' +
-          escapeHtml(person.equipo || "—") +
+          escapeHtml([person.equipo].concat((person.equipos_adicionales || []).map((x) => x.equipo)).filter(Boolean).join(" y ") || "—") +
           "</div></div>"
         : "") +
       legsHtml +
@@ -369,6 +369,27 @@
         cellHtml(te.carrera) +
         "</tr></tbody></table></div>";
       wrap.appendChild(teamCard);
+
+      (person.equipos_adicionales || []).forEach((extra) => {
+        const eq = (state.data.equipos || []).find((e) => e.equipo === extra.equipo);
+        if (!eq) return;
+        const c = document.createElement("div");
+        c.className = "ficha-card";
+        c.innerHTML =
+          '<p class="section-title">Segundo equipo</p>' +
+          '<div class="table-scroll"><table class="relevo-table"><thead><tr>' +
+          "<th>Equipo</th><th>Natación</th><th>Bici</th><th>Carrera</th>" +
+          "</tr></thead><tbody><tr>" +
+          '<td class="team-name">' + escapeHtml(eq.equipo) + "</td>" +
+          cellHtml(eq.natacion) + cellHtml(eq.bici) + cellHtml(eq.carrera) +
+          "</tr></tbody></table></div>";
+        wrap.appendChild(c);
+        requestAnimationFrame(() => {
+          c.querySelectorAll(".cell-btn").forEach((btn) => {
+            if (normalize(btn.dataset.name) === normalize(person.nombre_completo)) btn.classList.add("active");
+          });
+        });
+      });
 
       // highlight current person cells
       requestAnimationFrame(() => {
