@@ -197,7 +197,7 @@
     }
     people = people.filter((p) => matchesQuery(p, q));
     people.sort((a, b) =>
-      (a.dudoso ? 1 : 0) - (b.dudoso ? 1 : 0) ||
+      (noAsiste(a) ? 2 : a.dudoso ? 1 : 0) - (noAsiste(b) ? 2 : b.dudoso ? 1 : 0) ||
       a.nombre_completo.localeCompare(b.nombre_completo, "es", { sensitivity: "base" })
     );
 
@@ -236,7 +236,8 @@
           (p.patrocinado ? " · Patrocinado" : "");
       }
 
-      if (p.dudoso) meta += " · Dudoso";
+      if (noAsiste(p)) meta += " · No asiste";
+      else if (p.dudoso) meta += " · Dudoso";
       btn.innerHTML =
         '<span class="badge ' +
         badgeClass +
@@ -356,7 +357,7 @@
           "</div></div>"
         : "") +
       legsHtml +
-      (person.dudoso ? '<div class="field"><label>Estado</label><div class="value">Dudoso, puede que no compita</div></div>' : "") +
+      (noAsiste(person) ? '<div class="field"><label>Estado</label><div class="value">No asiste</div></div>' : person.dudoso ? '<div class="field"><label>Estado</label><div class="value">Dudoso, puede que no compita</div></div>' : "") +
       (person.nota || person.notas
         ? '<div class="field"><label>Nota</label><div class="value">' + escapeHtml(person.nota || person.notas) + "</div></div>"
         : "") +
@@ -473,6 +474,12 @@
     return bloques;
   }
 
+  function noAsiste(p) {
+    if (!p) return false;
+    return p.no_asiste === true || p.asiste === false ||
+      /^no/i.test(String(p.asistencia || "")) || /no[_ ]?asiste/i.test(String(p.estado || ""));
+  }
+
   function renderBloques(q) {
     const bloques = buildBloques();
     els.listAthletes.innerHTML = "";
@@ -489,12 +496,12 @@
         total++;
         const btn = document.createElement("button");
         btn.type = "button";
-        btn.className = "athlete-row";
+        btn.className = "athlete-row" + (noAsiste(it.person) || it.no_asiste ? " no-asiste" : "");
         btn.addEventListener("click", () => openFicha(it.person.id));
         btn.innerHTML =
           '<span class="badge carril">' + it.carril + escapeHtml(it.pos || "") + "</span>" +
           '<span class="athlete-main"><div class="athlete-name">' + escapeHtml(it.person.nombre_completo) +
-          '</div><div class="athlete-meta">Carril ' + it.carril + (it.pos ? " " + escapeHtml(it.pos) : "") + " · " + escapeHtml(it.meta) + (it.provisional ? " · Provisional" : "") + (it.person.dudoso ? " · Dudoso" : "") + "</div></span>";
+          '</div><div class="athlete-meta">Carril ' + it.carril + (it.pos ? " " + escapeHtml(it.pos) : "") + " · " + escapeHtml(it.meta) + (it.provisional ? " · Provisional" : "") + ((noAsiste(it.person) || it.no_asiste) ? ' · <strong class="no-asiste-tag">No asiste</strong>' : (it.person.dudoso ? " · Dudoso" : "")) + "</div></span>";
         els.listAthletes.appendChild(btn);
       });
     });
