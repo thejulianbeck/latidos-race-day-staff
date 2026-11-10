@@ -432,7 +432,7 @@
         label: b.categoria,
         items: (b.carriles || []).map((c) => {
           const p = (c.id && byId(c.id)) || byName(c.nombre || c.nadador);
-          return p ? { carril: c.carril, pos: c.posicion || "", provisional: !!c.provisional, person: p, meta: c.equipo ? "Relevo · " + c.equipo + (c.tobilleras > 1 ? " · " + c.tobilleras + " tobilleras" : "") : b.categoria } : null;
+          return p ? { carril: c.carril, pos: c.posicion || "", provisional: !!c.provisional, no_asiste: noAsiste(c), person: p, meta: c.equipo ? "Relevo · " + c.equipo + (c.tobilleras > 1 ? " · " + c.tobilleras + " tobilleras" : "") : b.categoria } : null;
         }).filter(Boolean),
       }));
     }
@@ -477,7 +477,7 @@
   function noAsiste(p) {
     if (!p) return false;
     return p.no_asiste === true || p.asiste === false ||
-      /^no/i.test(String(p.asistencia || "")) || /no[_ ]?asiste/i.test(String(p.estado || ""));
+      /^no/i.test(String(p.asistencia || "")) || /no[_ ]?asiste/i.test(String(p.estado || "")) || /no[_ ]?asiste/i.test(String(p.estado_asistencia || ""));
   }
 
   function renderBloques(q) {
