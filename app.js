@@ -356,9 +356,9 @@
       (person.nota || person.notas
         ? '<div class="field"><label>Nota</label><div class="value">' + escapeHtml(person.nota || person.notas) + "</div></div>"
         : "") +
-      ((person.bloque_natacion || []).length
+      ((person.heat_natacion || person.bloque_natacion || []).length
         ? '<div class="field"><label>Natación</label><div class="value">' +
-          person.bloque_natacion.map((b) => "Heat " + (b.heat || b.bloque) + ", carril " + b.carril + (b.equipo ? " (" + escapeHtml(b.equipo) + ")" : "")).join("<br>") +
+          (person.heat_natacion || person.bloque_natacion).map((b) => "Heat " + (b.heat || b.bloque) + ", carril " + b.carril + (b.posicion ? " " + escapeHtml(b.posicion) : "") + (b.equipo ? " (" + escapeHtml(b.equipo) + ")" : "")).join("<br>") +
           "</div></div>"
         : "") +
       "</div>";
@@ -419,13 +419,15 @@
   }
 
   function buildBloques() {
-    if (Array.isArray(state.data.bloques_natacion) && state.data.bloques_natacion.length) {
-      return state.data.bloques_natacion.map((b) => ({
-        numero: b.bloque,
+    const src = (Array.isArray(state.data.heats_natacion) && state.data.heats_natacion.length)
+      ? state.data.heats_natacion : state.data.bloques_natacion;
+    if (Array.isArray(src) && src.length) {
+      return src.map((b) => ({
+        numero: b.heat || b.bloque,
         label: b.categoria,
         items: (b.carriles || []).map((c) => {
           const p = (c.id && byId(c.id)) || byName(c.nombre || c.nadador);
-          return p ? { carril: c.carril, person: p, meta: c.equipo ? "Relevo · " + c.equipo + (c.tobilleras > 1 ? " · " + c.tobilleras + " tobilleras" : "") : b.categoria } : null;
+          return p ? { carril: c.carril, pos: c.posicion || "", provisional: !!c.provisional, person: p, meta: c.equipo ? "Relevo · " + c.equipo + (c.tobilleras > 1 ? " · " + c.tobilleras + " tobilleras" : "") : b.categoria } : null;
         }).filter(Boolean),
       }));
     }
@@ -486,9 +488,9 @@
         btn.className = "athlete-row";
         btn.addEventListener("click", () => openFicha(it.person.id));
         btn.innerHTML =
-          '<span class="badge carril">' + it.carril + "</span>" +
+          '<span class="badge carril">' + it.carril + escapeHtml(it.pos || "") + "</span>" +
           '<span class="athlete-main"><div class="athlete-name">' + escapeHtml(it.person.nombre_completo) +
-          '</div><div class="athlete-meta">Carril ' + it.carril + " · " + escapeHtml(it.meta) + "</div></span>";
+          '</div><div class="athlete-meta">Carril ' + it.carril + (it.pos ? " " + escapeHtml(it.pos) : "") + " · " + escapeHtml(it.meta) + (it.provisional ? " · Provisional" : "") + "</div></span>";
         els.listAthletes.appendChild(btn);
       });
     });
