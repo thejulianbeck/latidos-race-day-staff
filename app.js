@@ -157,6 +157,7 @@
         tr.innerHTML =
           '<td class="team-name">' +
           escapeHtml(eq.equipo) +
+          ((eq.dudosos || []).length ? '<div class="dudoso-tag">Dudoso</div>' : "") +
           "</td>" +
           cellHtml(eq.natacion) +
           cellHtml(eq.bici) +
@@ -196,6 +197,7 @@
     }
     people = people.filter((p) => matchesQuery(p, q));
     people.sort((a, b) =>
+      (a.dudoso ? 1 : 0) - (b.dudoso ? 1 : 0) ||
       a.nombre_completo.localeCompare(b.nombre_completo, "es", { sensitivity: "base" })
     );
 
@@ -234,6 +236,7 @@
           (p.patrocinado ? " · Patrocinado" : "");
       }
 
+      if (p.dudoso) meta += " · Dudoso";
       btn.innerHTML =
         '<span class="badge ' +
         badgeClass +
@@ -353,6 +356,7 @@
           "</div></div>"
         : "") +
       legsHtml +
+      (person.dudoso ? '<div class="field"><label>Estado</label><div class="value">Dudoso, puede que no compita</div></div>' : "") +
       (person.nota || person.notas
         ? '<div class="field"><label>Nota</label><div class="value">' + escapeHtml(person.nota || person.notas) + "</div></div>"
         : "") +
@@ -490,7 +494,7 @@
         btn.innerHTML =
           '<span class="badge carril">' + it.carril + escapeHtml(it.pos || "") + "</span>" +
           '<span class="athlete-main"><div class="athlete-name">' + escapeHtml(it.person.nombre_completo) +
-          '</div><div class="athlete-meta">Carril ' + it.carril + (it.pos ? " " + escapeHtml(it.pos) : "") + " · " + escapeHtml(it.meta) + (it.provisional ? " · Provisional" : "") + "</div></span>";
+          '</div><div class="athlete-meta">Carril ' + it.carril + (it.pos ? " " + escapeHtml(it.pos) : "") + " · " + escapeHtml(it.meta) + (it.provisional ? " · Provisional" : "") + (it.person.dudoso ? " · Dudoso" : "") + "</div></span>";
         els.listAthletes.appendChild(btn);
       });
     });
