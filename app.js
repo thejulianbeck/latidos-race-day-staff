@@ -421,7 +421,7 @@
         numero: b.bloque,
         label: b.categoria,
         items: (b.carriles || []).map((c) => {
-          const p = byId(c.id) || byName(c.nombre);
+          const p = (c.id && byId(c.id)) || byName(c.nombre || c.nadador);
           return p ? { carril: c.carril, person: p, meta: c.equipo ? "Relevo · " + c.equipo : b.categoria } : null;
         }).filter(Boolean),
       }));
