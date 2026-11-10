@@ -422,7 +422,7 @@
         label: b.categoria,
         items: (b.carriles || []).map((c) => {
           const p = (c.id && byId(c.id)) || byName(c.nombre || c.nadador);
-          return p ? { carril: c.carril, person: p, meta: c.equipo ? "Relevo · " + c.equipo : b.categoria } : null;
+          return p ? { carril: c.carril, person: p, meta: c.equipo ? "Relevo · " + c.equipo + (c.tobilleras > 1 ? " · " + c.tobilleras + " tobilleras" : "") : b.categoria } : null;
         }).filter(Boolean),
       }));
     }
