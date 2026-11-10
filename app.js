@@ -353,6 +353,11 @@
           "</div></div>"
         : "") +
       legsHtml +
+      ((person.bloque_natacion || []).length
+        ? '<div class="field"><label>Natación</label><div class="value">' +
+          person.bloque_natacion.map((b) => "Bloque " + b.bloque + ", carril " + b.carril + (b.equipo ? " (" + escapeHtml(b.equipo) + ")" : "")).join("<br>") +
+          "</div></div>"
+        : "") +
       "</div>";
 
     wrap.appendChild(card);
@@ -411,6 +416,16 @@
   }
 
   function buildBloques() {
+    if (Array.isArray(state.data.bloques_natacion) && state.data.bloques_natacion.length) {
+      return state.data.bloques_natacion.map((b) => ({
+        numero: b.bloque,
+        label: b.categoria,
+        items: (b.carriles || []).map((c) => {
+          const p = byId(c.id) || byName(c.nombre);
+          return p ? { carril: c.carril, person: p, meta: c.equipo ? "Relevo · " + c.equipo : b.categoria } : null;
+        }).filter(Boolean),
+      }));
+    }
     const LANES = 16;
     const all = state.data.inscritos;
     const isComp = (p) => p.modalidad !== "solo_camiseta" && ["M", "F", "Relevo"].includes(p.categoria);
@@ -454,7 +469,7 @@
     els.listAthletes.innerHTML = "";
     let total = 0;
     bloques.forEach((b) => {
-      const items = b.items.map((it, i) => Object.assign({ carril: i + 1 }, it))
+      const items = b.items.map((it, i) => Object.assign({ carril: i + 1 }, it, it.carril ? { carril: it.carril } : {}))
         .filter((it) => matchesQuery(it.person, q));
       if (!items.length) return;
       const h = document.createElement("div");
