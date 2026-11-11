@@ -481,7 +481,7 @@
 
   function renumberTeams(data) {
     const map = {};
-    (data.equipos || []).forEach((e) => { if (e.numero_equipo) map[e.equipo] = "Equipo " + e.numero_equipo; });
+    (data.equipos || []).forEach((e) => { if (e.numero_equipo) { map[e.equipo] = "Equipo " + e.numero_equipo; e.numero_original = e.numero; e.numero = e.numero_equipo; } });
     const fix = (n) => (n && map[n]) || n;
     const walk = (o) => {
       if (Array.isArray(o)) return o.forEach(walk);
