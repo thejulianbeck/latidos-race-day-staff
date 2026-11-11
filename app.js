@@ -479,6 +479,24 @@
     return bloques;
   }
 
+  function renumberTeams(data) {
+    const map = {};
+    (data.equipos || []).forEach((e) => { if (e.numero_equipo) map[e.equipo] = "Equipo " + e.numero_equipo; });
+    const fix = (n) => (n && map[n]) || n;
+    const walk = (o) => {
+      if (Array.isArray(o)) return o.forEach(walk);
+      if (!o || typeof o !== "object") return;
+      Object.keys(o).forEach((k) => {
+        if (k === "equipo" && typeof o[k] === "string") o[k] = fix(o[k]);
+        else if (k === "equipos" && Array.isArray(o[k]) && o[k].every((x) => typeof x === "string")) o[k] = o[k].map(fix);
+        else walk(o[k]);
+      });
+    };
+    walk(data);
+    if (data.equipos) data.equipos.sort((a, b) => (a.numero_equipo || 999) - (b.numero_equipo || 999));
+    return data;
+  }
+
   function militarTag(p) {
     if (!p || !(p.militar === true || p.rango)) return "";
     return ' <span class="militar-tag">★ ' + escapeHtml(p.rango || "Militar") + "</span>";
@@ -774,7 +792,7 @@
   }
 
   function unlock(data) {
-    state.data = data;
+    state.data = renumberTeams(data);
     lock.els.view.hidden = true;
     els.viewList.hidden = false;
     els.viewFicha.hidden = false;
