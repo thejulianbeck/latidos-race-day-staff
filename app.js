@@ -192,6 +192,8 @@
       );
     } else if (filter === "solo_camiseta") {
       people = people.filter((p) => !isComp(p));
+    } else if (filter === "dudoso_noasiste") {
+      people = people.filter((p) => p.dudoso === true || noAsiste(p));
     } else if (filter === "patrocinados") {
       people = people.filter((p) => p.patrocinado === true);
     }
